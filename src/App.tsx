@@ -15,8 +15,8 @@ const posts: PostType[] = [
     },
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
-      { type: 'link', content: '👉 jane.design/doctorcare' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. Um projeto realizado durante as aulas da Rocketseat. O nome do projeto é IgniteFeed 🚀'},
+      { type: 'link', content: '👉 github.com/vivianemartini/ignite-feed-typescript' },
     ],
     publishedAt: new Date('2023-03-01 16:00:00')
   },
@@ -28,8 +28,8 @@ const posts: PostType[] = [
       role: 'Educator @Rocketseat'
     },
     content: [
-      { type: 'paragraph', content: 'Fala galeraa 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      { type: 'paragraph', content: 'Fala dev!' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no perfil da Rocket. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
       { type: 'link', content: '👉 jane.design/doctorcare' },
     ],
     publishedAt: new Date('2023-03-02 16:00:00')

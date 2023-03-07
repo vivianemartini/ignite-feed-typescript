@@ -29,7 +29,7 @@ export function Comment({ content, onDeleteComment }: CommentProps){
                 <div className={styles.commentContent}>
                     <header>
                         <div className={styles.authorAndTime}>
-                            <strong>Viviane Martini</strong>
+                            <strong>Diego Fernandes</strong>
                             <time title='Dois de Março ás 11:26h' dateTime='2023-03-02 11:26:00'>Cerca de 1h atrás</time>
                         </div>
 
