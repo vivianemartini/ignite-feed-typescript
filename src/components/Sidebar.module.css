@@ -60,3 +60,45 @@
     background: var(--green-500);
     color: var(--white);
 }
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.editForm label {
+    display: flex;
+    flex-direction: column;
+    color: var(--gray-100);
+    gap: 5px;
+}
+
+.editForm input {
+    background: var(--gray-700);
+    border: 1px solid var(--gray-600);
+    border-radius: 8px;
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    color: var(--gray-100);
+}
+
+.editForm button[type="submit"] {
+    background: var(--green-500);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0 1.5rem;
+    height: 50px;
+}
+
+.editForm button[type="button"] {
+    background: var(--red-500);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0 1.5rem;
+    height: 50px;
+}

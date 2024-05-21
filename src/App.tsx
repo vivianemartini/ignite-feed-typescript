@@ -1,4 +1,4 @@
-import { Post, PostType  } from "./components/Post";
+import { Post, PostType } from "./components/Post";
 import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
 
@@ -14,9 +14,9 @@ const posts: PostType[] = [
       role: 'Web Developer'
     },
     content: [
-      { type: 'paragraph', content: 'Fala galeraa 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. Um projeto realizado durante as aulas da Rocketseat. O nome do projeto é IgniteFeed 🚀'},
-      { type: 'link', content: '👉 github.com/vivianemartini/ignite-feed-typescript' },
+      { type: 'paragraph', content: 'Olá pessoal,' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto. Ele foi feito durante as aulas da Rocketseat. O nome do projeto é IgniteFeed' },
+      { type: 'link', content: '👉 vivianemartini/ignite-feed-typescript' },
     ],
     publishedAt: new Date('2023-03-01 16:00:00')
   },
@@ -29,8 +29,8 @@ const posts: PostType[] = [
     },
     content: [
       { type: 'paragraph', content: 'Fala dev!' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no perfil da Rocket. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
-      { type: 'link', content: '👉 jane.design/doctorcare' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no perfil da Rocket. É o material para o evento do Ignite. O nome do projeto é Ignite Nitro 🚀' },
+      { type: 'link', content: '👉 diego3g/ignite-nitro-design' },
     ],
     publishedAt: new Date('2023-03-02 16:00:00')
   }
@@ -47,10 +47,10 @@ export function App() {
         <main>
           {posts.map(post => {
             return (
-            <Post 
-               key={post.id} 
-               post={post}
-            />
+              <Post
+                key={post.id}
+                post={post}
+              />
             )
           })}
         </main>
