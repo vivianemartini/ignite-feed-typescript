@@ -1,7 +1,7 @@
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
- 
+
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
@@ -11,7 +11,7 @@ interface Author {
     role: string;
     avatarUrl: string;
 }
-  
+
 interface Content {
     type: 'paragraph' | 'link';
     content: string;
@@ -23,7 +23,7 @@ export interface PostType {
     publishedAt: Date;
     content: Content[];
 }
-  
+
 interface PostProps {
     post: PostType;
 }
@@ -31,7 +31,7 @@ interface PostProps {
 export function Post({ post }: PostProps) {
     const [comments, setComments] = useState([
         'Post muito bacana!'
-      ]);
+    ]);
 
     const [newCommentText, setNewCommentText] = useState('')
 
@@ -43,38 +43,38 @@ export function Post({ post }: PostProps) {
         locale: ptBR,
         addSuffix: true,
     })
-    
+
     function handleCrateNewComment(event: FormEvent) {
         event.preventDefault()
-    
+
         setComments([...comments, newCommentText]);
         setNewCommentText('')
-      }
+    }
 
-      function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>){
+    function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
         event.target.setCustomValidity('');
         setNewCommentText(event.target.value);
-      }
+    }
 
-      function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>){
+    function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
         event.target.setCustomValidity('Esse campo é obrigatório!')
-      }
+    }
 
-      function deleteComment(commentToDelete: string){
+    function deleteComment(commentToDelete: string) {
         const commentsWithoutDeleteOne = comments.filter(comment => {
             return comment !== commentToDelete
         })
 
         setComments(commentsWithoutDeleteOne)
-      }
-    
-      const isNewCommentEmpty = newCommentText.length === 0;
+    }
+
+    const isNewCommentEmpty = newCommentText.length === 0;
 
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src={post.author.avatarUrl}/>
+                    <Avatar src={post.author.avatarUrl} />
                     <div className={styles.authorInfo}>
                         <strong>{post.author.name}</strong>
                         <span>{post.author.role}</span>
@@ -88,10 +88,11 @@ export function Post({ post }: PostProps) {
 
             <div className={styles.content}>
                 {post.content.map(line => {
-                    if(line.type === 'paragraph') {
+                    if (line.type === 'paragraph') {
                         return <p key={line.content}>{line.content}</p>
                     } else if (line.type === 'link') {
-                        return <p key={line.content}><a href="#">{line.content}</a></p>
+                        const url = `https://github.com/${line.content.replace('👉 ', '')}`;
+                        return <p key={line.content}><a href={url} target="_blank" rel="noopener noreferrer">{line.content}</a></p>
                     }
                 })}
             </div>
@@ -99,13 +100,13 @@ export function Post({ post }: PostProps) {
             <form onSubmit={handleCrateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu comentário</strong>
 
-                <textarea 
-                name='comment'
-                placeholder='Deixe seu comentário'
-                value={newCommentText}
-                onChange={handleNewCommentChange}
-                onInvalid={handleNewCommentInvalid}
-                required
+                <textarea
+                    name='comment'
+                    placeholder='Deixe seu comentário'
+                    value={newCommentText}
+                    onChange={handleNewCommentChange}
+                    onInvalid={handleNewCommentInvalid}
+                    required
                 />
 
                 <footer>
@@ -116,16 +117,16 @@ export function Post({ post }: PostProps) {
             </form>
 
             <div className={styles.commentList}>
-              {comments.map(comment => {
-                return (
-                    <Comment 
-                    key={comment} 
-                    content={comment} 
-                    onDeleteComment={deleteComment}
-                    />
-                )
-            })}
+                {comments.map(comment => {
+                    return (
+                        <Comment
+                            key={comment}
+                            content={comment}
+                            onDeleteComment={deleteComment}
+                        />
+                    )
+                })}
             </div>
         </article>
     );
-  }
+}
